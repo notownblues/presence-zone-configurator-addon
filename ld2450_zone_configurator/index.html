@@ -52,27 +52,10 @@
 
             <!-- Right Panel: Controls -->
             <aside class="controls-panel">
-                <!-- MQTT Connection Settings -->
+                <!-- Position Reporting -->
                 <section class="control-section">
-                    <h2>MQTT Connection</h2>
+                    <h2>Sensor Control</h2>
                     <div class="form-group">
-                        <label for="mqttBroker">Broker URL</label>
-                        <input type="text" id="mqttBroker" placeholder="ws://localhost:9001" value="ws://localhost:9001">
-                    </div>
-                    <div class="form-group">
-                        <label for="mqttUsername">Username (optional)</label>
-                        <input type="text" id="mqttUsername" placeholder="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="mqttPassword">Password (optional)</label>
-                        <input type="password" id="mqttPassword" placeholder="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="mqttTopic">Base Topic</label>
-                        <input type="text" id="mqttTopic" placeholder="zigbee2mqtt/SHS01" value="zigbee2mqtt/SHS01">
-                    </div>
-                    <button id="connectBtn" class="btn btn-primary">Connect</button>
-                    <div class="form-group" style="margin-top: 10px;">
                         <button id="positionReportingBtn" class="btn btn-secondary" disabled>
                             Enable Position Reporting
                         </button>

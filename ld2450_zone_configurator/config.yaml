@@ -1,5 +1,5 @@
 name: LD2450 Zone Configurator
-version: "1.0.1"
+version: "1.0.2"
 slug: ld2450_zone_configurator
 description: Web-based zone configurator for LD2450 mmWave presence sensor via Zigbee2MQTT
 url: https://github.com/notownblues/presence-zone-configurator-addon
