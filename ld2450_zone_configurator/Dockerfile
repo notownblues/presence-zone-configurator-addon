@@ -26,4 +26,6 @@ RUN chmod +x /run.sh
 RUN rm -rf /build
 
 WORKDIR /
+
+ENTRYPOINT []
 CMD ["/run.sh"]
