@@ -104,7 +104,7 @@ async function loadConfig() {
             if (config.mqtt) {
                 const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
                 const host = config.mqtt.host || 'localhost';
-                const wsPort = config.mqtt.wsPort || 9001;
+                const wsPort = config.mqtt.wsPort || 1884;
 
                 state.mqtt.broker = `${wsProtocol}//${host}:${wsPort}`;
                 state.mqtt.username = config.mqtt.username || '';
