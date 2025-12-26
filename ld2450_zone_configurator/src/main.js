@@ -96,7 +96,7 @@ const zoneManager = new ZoneManager(state.zones);
 
 async function loadConfig() {
     try {
-        const response = await fetch('/config.json');
+        const response = await fetch('./config.json');
         if (response.ok) {
             const config = await response.json();
             console.log('Loaded config:', config);
