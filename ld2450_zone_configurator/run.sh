@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/env bashio
 
 # Generate runtime configuration from HA options
 /generate-config.sh
