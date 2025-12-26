@@ -2,26 +2,28 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Install nginx and nodejs for building
-RUN apk add --no-cache nginx nodejs npm
+RUN apk add --no-cache nginx nodejs npm jq
 
-# Create nginx pid directory
-RUN mkdir -p /run/nginx
+# Create directories
+RUN mkdir -p /run/nginx /var/www/html
 
 # Copy and build the web app
-WORKDIR /app
+WORKDIR /build
 COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
-
-# Move built files to nginx directory
-RUN cp -r /app/dist/* /var/www/html/ || mkdir -p /var/www/html && cp -r /app/dist/* /var/www/html/
+RUN cp -r dist/* /var/www/html/
 
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/http.d/default.conf
 
-# Cleanup build files
-RUN rm -rf /app/node_modules /app/src
+# Copy run script
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
 
-# Copy s6-overlay service files
-COPY rootfs /
+# Cleanup
+RUN rm -rf /build
+
+WORKDIR /
+CMD ["/run.sh"]
