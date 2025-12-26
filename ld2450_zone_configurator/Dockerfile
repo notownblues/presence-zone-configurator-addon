@@ -27,14 +27,8 @@ COPY --from=builder /app/dist /var/www/html
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/http.d/default.conf
 
-# Copy run script
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
+# Create nginx pid directory
+RUN mkdir -p /run/nginx
 
-# Copy config template script
-COPY generate-config.sh /generate-config.sh
-RUN chmod +x /generate-config.sh
-
-WORKDIR /var/www/html
-
-CMD ["/run.sh"]
+# Copy s6-overlay service files
+COPY rootfs /
